@@ -6,8 +6,10 @@ LABEL maintainer="Alberto Sfolcini <a.sfolcini@gmail.com>"
 #ENV http_proxy ''
 #ENV https_proxy ''
 
-RUN apk -U --no-cache --force --no-progress add openJDK maven git
-
+RUN apk update
+RUN apk fetch openjdk8
+RUN apk add openjdk8
+RUN apk --no-cache add maven git ca-certificates
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 ENV PATH="$JAVA_HOME/bin:${PATH}"
 
