@@ -8,5 +8,11 @@ LABEL maintainer="Alberto Sfolcini <a.sfolcini@gmail.com>"
 
 RUN apk -U --no-cache --force --no-progress add openJDK maven git
 
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
+ENV PATH="$JAVA_HOME/bin:${PATH}"
+
+RUN java -version
+RUN javac -version
+
 
 EXPOSE 8181
